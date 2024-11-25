@@ -15,6 +15,8 @@ project ini dilatih menggunakan dataset yang terdiri dari fitur deskripsi cv. Tu
 
 <p align="center"><img src="https://github.com/DaffaAminuddin/cv-reader-predict-job-ml-based/blob/main/image.PNG?raw=true" alt="image"></p>
 
+<p align="center"><img src="https://github.com/DaffaAminuddin/cv-reader-predict-job-ml-based/blob/main/image2.PNG?raw=true" alt="image2"></p>
+
 - Prediksi klasifikasi bidang pekerjaan, ex: engineering,finance, law, accountant etc
 - Ekstrak informasi penting, Ex: nama, email, Phone
 - Ditampilkan menggunakan flask terhubung html dan css.
