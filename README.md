@@ -1,4 +1,4 @@
-# Web app Prediksi Bidang Pekerjaan Berdasarkan CV Menggunakan ML (RandomForestClassification)
+# Python Web app Prediksi Bidang Pekerjaan CV/Resume Menggunakan ML (RandomForestClassification)
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge uses-html](http://ForTheBadge.com/images/badges/uses-html.svg)](http://ForTheBadge.com)
