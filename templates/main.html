@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta nam="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV READER</title>
+
+<style>
+    body{
+        font-family: "Roboto", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+        background-color: #D3F1DF;
+        color: #000B58;
+    }
+    .container{
+        max-width: 1000px;
+        margin:auto;
+        padding:40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    h2 {
+        text-align: center;
+        margin-botton: 20px;
+        font-size:30px;
+        color: #000B58;
+    }
+    form{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 500px;
+        margin:auto;
+        background-color: #D3F1DF;
+        padding:20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        color: #000B58;
+
+    }
+    input[type="file"]{
+        margin-bottom: 20px;
+    }
+    input[type="submit"]{
+        padding: 10px 20px;
+        background-color: #85A98F;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover{
+        background-color: #85A98F
+        color: #000B58;
+    }
+    .category {
+        font-family: "Roboto", sans-serif;
+        text-align: center;
+        font-size:20px;
+        background-color: #D3F1DF;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        padding: 25px;
+        max-width: 500px;
+        margin:auto;
+        color: #000B58;
+    }
+    .text-head, .text-desc {
+        text-align: center;
+        color: #000B58;
+    }
+    .text-list {
+        color: #000B58;
+    }
+    .ekstrak {
+        font-family: "Roboto", sans-serif;
+        text-align: left;
+        font-size:20px;
+        background-color: #D3F1DF;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        padding: 25px;
+        max-width: 500px;
+        margin:auto;
+        color: #000B58;
+    }
+</style>
+
+<body>
+<div class="container" style="margin-top:20px; background:#85A98F; color:black;">
+    <h1 class="text-head">CV READER MACHINE LEARNING BASED SYSTEM</h1>
+    <p class="text-desc">Upload Resume/CV anda untuk mendeteksi bidang pekerjaan apa yang sesuai, Support format file txt, pdf dan docx</p>
+    <ul class="text-list">
+        <li>Pengkategorian Pekerjaan CV</li>
+        <li>Ekstraks Informasi CV</li>
+    </ul>
+</div>
+
+<div class="container" style="margin-top:20px; background:#85A98F; color:black;">
+    <h2>Unggah CV anda</h2>
+    <form action="/pred" method="post" enctype="multipart/form-data">
+        <input type="file" name="resume" accept=".pdf, .txt, .docx", required>
+        <input type="submit" value="submit">
+    </form>
+
+    {% if massage %}
+    <p class="text-center">{{massage}}</p>
+    {% endif %}
+
+    {% if predicted_category %}
+    <br>
+    <hr>
+    <br>
+    <p class="category">Bidang Pekerjaan: {{predicted_category}}</p>
+    <br>
+    <hr>
+    <h1 class="category">Informasi yang terekstrak</h1>
+    <p class="ekstrak">Nama: {{name}}</p>
+    <p class="ekstrak">No telp: {{phone}}</p>
+    <p class="ekstrak">Email: {{email}}</p>
+    {% if extracted_skills %}
+    <p class="category">Keahlian/Skill</p>
+    <ul class="ekstrak">
+        {% for skill in extracted_skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="ekstrak">Maaf, kemampuan/skill tidak ditemukan...</p>
+    <br>
+    {% if extracted_education %}
+    <h1 class="ekstrak">Pendidikan:</h1>
+    <ul class="ekstrak">
+        {% for edu in extracted_education %}
+        <li>{{ edu }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="ekstrak">Maaf, Pendidikan tidak ditemukan...</p>
+    <br>
+    {% endif %}
+    {% endif %}
+    {% endif %}
+
+</div>
+</body>
+
+</head>
+</html>
